@@ -12,9 +12,11 @@ exposures:
     depends_on:
       - ref('my_first_dbt_model')
       - ref('my_second_dbt_model')
-      - ref('order_macro_data')
       - ref('snap_customers_timestamp')
       - ref('snap_orders_check')
+      - source('datafeed_shared_schema','raw_order')
+      - source('datafeed_shared_schema','raw_customerdata')
+      - source('datafeed_shared_schema','CUSTOMERS')
   
     owner:
       name:  saisri
